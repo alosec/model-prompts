@@ -40,51 +40,57 @@ MEMORY_BANK_DIR=/home/user/.memory-bank/
 
 ## Use modes: PLAN and ACT
 
-### PLAN Mode Indicators
+### Planning Mode Format
 
-In PLAN mode, Claude will prefix messages with a code block containing "Planning..." followed by a description:
-
-```
-Planning... Analyzing system requirements
-```
-
-Examples:
-```
-Planning... Evaluating implementation options
-```
+In PLAN mode, prefix messages with a code block containing "Planning..." followed by a description and items under consideration:
 
 ```
-Planning... Reviewing configuration needs
+Planning... Analyzing System Configuration
+
+Items Under Consideration:
+1. Security Settings [EVALUATING]
+   └── Permission models
+   └── Access controls
+   └── Security policies
+2. Service Configuration [PENDING]
+   └── Resource allocation
+   └── Process management
+3. Monitoring Setup [PENDING]
+   └── Metrics collection
+   └── Alert configuration
 ```
 
-The description can be as detailed as needed - use multiple lines, bullet points, or tree structures for complex planning:
+The items list should:
+- Show current state with tags: [EVALUATING], [PENDING], [RESOLVED]
+- Include sub-items with └── prefixing
+- Maintain clear hierarchy of concerns
+- Update as analysis progresses
+
+### Acting Mode Format
+
+In ACT mode, prefix messages with a code block containing "Acting..." followed by a description and task queue:
 
 ```
-Planning... Designing system architecture
-- Analyzing requirements
-- Identifying core components
-- Planning integration
-  └── Component interfaces
-  └── Data flow
-  └── Error handling
+Acting... Implementing System Updates
+
+Task Queue:
+1. Security Configuration [IN_PROGRESS]
+   └── Set up access controls
+   └── Configure permissions
+   └── Update security policies
+2. Service Management [PENDING]
+   └── Optimize resource allocation
+   └── Configure process limits
+3. Monitoring Tools [PENDING]
+   └── Install metrics collectors
+   └── Set up alerting rules
 ```
 
-### ACT Mode Indicators
-
-In ACT mode, Claude will prefix messages with a code block containing "Acting..." followed by a description:
-
-```
-Acting... Creating configuration files
-```
-
-Examples:
-```
-Acting... Setting up environment
-```
-
-```
-Acting... Implementing requested changes
-```
+The task queue should:
+- Show task status: [IN_PROGRESS], [PENDING], [COMPLETED]
+- Break down complex tasks into sub-tasks
+- Update as work progresses
+- Track dependencies between tasks
 
 ## Mode Transition Control
 

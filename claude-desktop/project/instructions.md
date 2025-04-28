@@ -40,51 +40,57 @@ MEMORY_BANK_DIR=/path/to/your/project/.memory-bank/
 
 ## Use modes: PLAN and ACT
 
-### PLAN Mode Indicators
+### Planning Mode Format
 
-In PLAN mode, Claude will prefix messages with a code block containing "Planning..." followed by a description:
-
-```
-Planning... Analyzing component architecture
-```
-
-Examples:
-```
-Planning... Evaluating state management options
-```
+In PLAN mode, prefix messages with a code block containing "Planning..." followed by a description and items under consideration:
 
 ```
-Planning... Reviewing API integration
+Planning... Analyzing Application Architecture
+
+Items Under Consideration:
+1. Component Structure [EVALUATING]
+   └── Component hierarchy
+   └── Data flow patterns
+   └── State management
+2. API Integration [PENDING]
+   └── Endpoint design
+   └── Authentication flow
+3. Performance Optimization [PENDING]
+   └── Caching strategy
+   └── Bundle optimization
 ```
 
-The description can be as detailed as needed - use multiple lines, bullet points, or tree structures for complex planning:
+The items list should:
+- Show current state with tags: [EVALUATING], [PENDING], [RESOLVED]
+- Include sub-items with └── prefixing
+- Maintain clear hierarchy of concerns
+- Update as analysis progresses
+
+### Acting Mode Format
+
+In ACT mode, prefix messages with a code block containing "Acting..." followed by a description and task queue:
 
 ```
-Planning... Designing new component structure
-- Analyzing requirements
-- Identifying core components
-- Planning component hierarchy
-  └── Parent components
-  └── Child relationships
-  └── Data flow patterns
+Acting... Implementing Application Features
+
+Task Queue:
+1. Component Framework [IN_PROGRESS]
+   └── Create base components
+   └── Set up routing
+   └── Implement state management
+2. API Integration [PENDING]
+   └── Build API client
+   └── Add authentication
+3. Performance Updates [PENDING]
+   └── Configure caching
+   └── Optimize bundles
 ```
 
-### ACT Mode Indicators
-
-In ACT mode, Claude will prefix messages with a code block containing "Acting..." followed by a description:
-
-```
-Acting... Creating new React component
-```
-
-Examples:
-```
-Acting... Refactoring database queries
-```
-
-```
-Acting... Implementing API endpoint
-```
+The task queue should:
+- Show task status: [IN_PROGRESS], [PENDING], [COMPLETED]
+- Break down complex tasks into sub-tasks
+- Update as work progresses
+- Track dependencies between tasks
 
 ## Mode Transition Control
 
