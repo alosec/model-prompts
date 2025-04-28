@@ -1,41 +1,53 @@
-# Claude Desktop Prompts
+# Model Prompts
 
-This repository contains standardized instruction sets for Claude's behavior in desktop environments. It consists of two main components:
+This repository contains standardized instruction sets for AI model behaviors in development environments. Currently supporting Claude Desktop and Cline.
 
 ## Directory Structure
 
 ```
-claude-desktop-prompts/
-├── project/ - Project-level instructions
-│   └── instructions.md - Defines Claude's behavior within projects
-└── system/ - System-level instructions
-    └── instructions.md - Defines system-level behaviors and operations
+model-prompts/
+├── claude-desktop/ - Claude's desktop environment instructions
+│   ├── project/ - Project-level behaviors
+│   │   └── instructions.md - Defines behavior within projects
+│   └── system/ - System-level behaviors
+│       └── instructions.md - Defines system operations
+└── cline/ - Cline assistant instructions
+    └── extension/
+        └── instructions.md - Defines Cline's behavior and capabilities
 ```
 
 ## Components
 
-### Project Instructions
-The project instructions (`project/instructions.md`) define how Claude behaves within projects, including:
-- Memory bank structure and management
-- Project documentation patterns
+### Claude Desktop
+The Claude Desktop instructions define behavior for Claude in desktop environments, including:
+- Project and system-level operations
+- Memory bank management
+- Documentation patterns
 - Mode behaviors (Plan/Act)
 - File operation formatting
 - Response prefixing rules
 
-### System Instructions
-The system instructions (`system/instructions.md`) define system-level behaviors, including:
-- Common operations best practices
-- Security considerations
-- Resource management
-- Documentation requirements
-- System memory bank structure
+### Cline
+The Cline instructions define behavior for the Cline development assistant, featuring:
+- Enhanced mode indicators with task tracking
+- Memory bank structure
+- Project intelligence system
+- Documentation patterns
+- Communication formatting
 
 ## Usage
 
+### Claude Desktop
 1. Clone this repository
-2. Use the instructions as templates for Claude deployment
-3. Customize as needed while maintaining core functionality
-4. Keep documentation synchronized with any modifications
+2. Use `claude-desktop/project/instructions.md` for project-level behaviors
+3. Use `claude-desktop/system/instructions.md` for system operations
+4. Customize as needed while maintaining core functionality
+
+### Cline
+1. Clone this repository
+2. Use `cline/extension/instructions.md` for Cline configuration
+3. Follow the Memory Bank structure for project documentation
+4. Maintain .clinerules for project-specific patterns
 
 ## Contributing
 
