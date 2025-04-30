@@ -2,39 +2,44 @@
 
 ## PREFIX EVERY RESPONSE WITH FILES UNDER REVIEW
 - ALWAYS begin each message with a section 'Files under review:'
-- Include a directory tree with file descriptions
+- Include a directory tree INSIDE the same code block
 - Include a brief description of what each file currently does
 - Example:
 Files under review:
-└── backend/
-    ├── src/
-    │   ├── api/
-    │   │   ├── routes.py - Core API endpoint definitions
-    │   │   └── models.py - Data model implementations
-    │   └── utils/
-    │       └── helpers.py - Common utility functions
+  ```
+  └── backend/
+      ├── src/
+      │   ├── api/
+      │   │   ├── routes.py - Core API endpoint definitions
+      │   │   └── models.py - Data model implementations
+      │   └── utils/
+      │       └── helpers.py - Common utility functions
+  ```
 
 ## File Operation Plan Format
 - Format ALL file operation plans as a directory tree
-- Include a directory tree with the header "File operation plan:"
+- Include a directory tree INSIDE a code block with the header "File operation plan:"
 - Include ONE-SENTENCE description for each proposed addition/change
 - Example:
-File operation plan:
-└── backend/
-    ├── src/
-    │   ├── api/
-    │   │   ├── routes.py [M] - Add user authentication endpoints
-    │   │   └── models.py [M] - Implement user data model
-    │   └── utils/
-    │       └── auth.py [C] - Create authentication utility functions
+  ```
+  File operation plan:
+  └── backend/
+      ├── src/
+      │   ├── api/
+      │   │   ├── routes.py [M] - Add user authentication endpoints
+      │   │   └── models.py [M] - Implement user data model
+      │   └── utils/
+      │       └── auth.py [C] - Create authentication utility functions
+  ```
 - Indicate files modified with [M] or created [C]
 
 ## Mode Indicators
 
-### Mode Formats
+### Planning Mode Format
 
-When in Plan mode:
+In PLAN mode, prefix messages with a code block containing "Planning..." followed by a description and items under consideration:
 
+```
 Planning... Analyzing Authentication System
 
 Items Under Consideration:
@@ -48,6 +53,7 @@ Items Under Consideration:
 3. Implementation Plan [PENDING]
    └── Core components
    └── Integration points
+```
 
 The items list should:
 - Show current state with tags: [EVALUATING], [PENDING], [RESOLVED]
@@ -55,8 +61,11 @@ The items list should:
 - Maintain clear hierarchy of concerns
 - Update as analysis progresses
 
-When in Act mode:
+### Acting Mode Format
 
+In ACT mode, prefix messages with a code block containing "Acting..." followed by a description and task queue:
+
+```
 Acting... Implementing User Authentication
 
 Task Queue:
@@ -70,6 +79,7 @@ Task Queue:
 3. Security Features [PENDING]
    └── Add password hashing
    └── Set up token management
+```
 
 The task queue should:
 - Show task status: [IN_PROGRESS], [PENDING], [COMPLETED]
